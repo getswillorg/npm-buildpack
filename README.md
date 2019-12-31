@@ -3,7 +3,7 @@
 This is a Heroku buildpack that enables authenticated npm operations
 within a Heroku dyno.
 
-It detects an `NPM_AUTH_TOKEN` environment variable and creates a `.npmrc` file.
+It detects `NPM_AUTH_TOKEN` and `NPM_REGISTRY` (defaults to `registry.npmjs.org`) environment variables and creates a `.npmrc` file.
 
 It is the soul sister of the [GitHub Buildpack](https://github.com/zeke/github-buildpack).
 
@@ -21,6 +21,7 @@ Save the token in your Heroku app config:
 
 ```sh
 heroku config:set NPM_AUTH_TOKEN=YOUR_TOKEN_HERE
+heroku config:set NPM_REGISTRY=npm.private.co # optional, will default to registry.npmjs.org
 ```
 
 Configure your app to use this buildpack:
